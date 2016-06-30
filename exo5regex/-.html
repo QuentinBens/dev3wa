@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Création fiche Produit</title>
+    <head>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+  <h1>Fiche Produit</h1>
+
+    <hr />
+
+    <div class="col-md-8">
+
+      <form>
+
+        <div>
+          <label for="TitrePro">Titre du produit</label>
+          <input id="TitrePro" class="form-control" placeholder="Min. 4 caractères alpha" type="text" />
+        </div>
+
+        <div>
+            <label for="transporteur">Choisissez votre mode de transport</label>
+            <select id="transporteur" class="form-control">
+              <option value="none"> </option>
+              <option value="UPS">UPS</option>
+              <option value="DHL">DHL</option>
+              <option value="SoCollissimo">So Collissimo</option>
+              <option value="LaPoste">La Poste</option>
+              <option value="PointRelay">Point Relay</option>
+              <option value="Autre">Autre</option>
+          </select>
+        </div>
+
+        <div>
+          <label >Couleur du produit</label>
+          <input id="choixColor" class="form-control" type="color" style="width:50px" name="couleurPro" value="#ff0000">
+        </div>
+
+        <div>
+          <label for="quantity">Quantité</label>
+          <input id="quantity" class="form-control" type="number" style="width:200px" name="quantity" placeholder="1 minimum">
+        </div>
+
+        <label>Frais de ports offerts : </label>
+        <div class="form-input">
+          <input name="offreLiv" id="offrLivOk" type="radio" value="1" />
+          <label for="offrLivOk">Oui</label>
+
+          <input name="offreLiv" type="radio" id="offrLivNok" />
+          <label for="offrLivNok">Non</label>
+        </div>
+
+        <div>
+          <label for="3fois">Paiement en 3 fois : </label>
+          <input id="3fois" type="checkbox" name="name" value="0">
+          <label for="3fois"> Oui</label>
+        </div>
+        <div>
+          <label for="retraitMag">Retrait offert en magasin :  </label>
+          <input id="retraitMag" type="checkbox">
+          <label for="retraitMag"> Oui</label>
+        </div>
+
+        <div>
+          <label for="refProduit">Référence du produit</label>
+          <input id="refProduit" class="form-control" type="texte" style="width:300px" placeholder="AA-0000-BB">
+        </div>
+
+        <div>
+          <label for="prixHT">Prix du produit hors taxe</label>
+          <input id="prixHT" type="text" class="form-control" name="Prix HT" style="width:300px" placeholder="000.00€">
+        </div>
+
+        <label>Capacité de stockage</label>
+        <div class="form-input">
+          <input name="stockage" id="stock0go" type="radio" />
+          <label for="stock0go"> Aucun</label>
+
+          <input name="stockage" id="stock5go" type="radio" />
+          <label for="stock5go"> 5 Go</label>
+
+          <input name="stockage" id="stock10go" type="radio" />
+          <label for="stock10go"> 10 Go</label>
+
+          <input name="stockage" id="stock20go" type="radio" />
+          <label for="stock20go"> 20 Go</label>
+
+          <input name="stockage" id="stock50go" type="radio" />
+          <label for="stock50go"> 50 Go</label>
+
+          <input name="stockage" id="stock100go" type="radio" />
+          <label for="stock100go"> 100 Go</label>
+
+          <input name="stockage" id="stock1to" type="radio" />
+          <label for="stock1to"> 1 To</label>
+        </div>
+
+        <div>
+          <label for="dateSortie">Date de sortie du produit</label>
+          <input id="dateSortie" class="form-control" type="text" style="width:300px" name="Date de sortie" placeholder="JJ/MM/AAAA">
+        </div>
+
+        <div>
+          <input required="required" class="input-control" id="cgvOk" type="checkbox" name="cgvOk">
+          <label for="cgvOk"> J'accepte les conditions générales de vente</label>
+        </div>
+
+        <div>
+          <input required="required" class="input-control" id="CGUok" type="checkbox" name="CGUok">
+          <label for="CGUok"> J'accepte les conditions générales d'utilisation</label>
+        </div>
+
+        <div>
+          <label for="garantiePro">Nombre d'année de garantie du produit : </label>
+          <input class="form-control" type="text" style="width:300px" id="garantiePro" placeholder="de 1 à 5 ans">
+        </div>
+
+        <div>
+          <label for="tauxTVA">Taux de TVA appliqué</label>
+          <input class="form-control" type="text" style="width:300px" id="tauxTVA" placeholder="00.00%">
+        </div>
+
+        <div>
+          <label for="prixTTC">Prix TTC </label>
+          <input class="form-control" type="text" style="width:300px" id="prixTTC" placeholder="Veuillez saisir le prix HT et le taux.">
+        </div>
+
+        <div>
+          <label for="fonctionPro">Fonctionnalités du produit</label>
+          <textarea class="form-control" id="fonctionPro" style="width:300px" placeholder="minimum 20 caractères..."></textarea>
+          <span class="help-block"><b>0</b> caractères</span>
+        </div>
+
+        <div>
+          <label for="lienImage">Lien vers l'image du produit</label>
+          <input class="form-control" type="text" style="width:600px" id="lienImage" placeholder="Saisir l'url de l'image (jpg ou png)">
+        </div>
+
+        <div>
+          <label for="lienVideo">Lien vers la video du produit</label>
+          <input class="form-control" type="text" style="width:600px" id="lienVideo" placeholder="Saisir l'url de la video de présentation (Youtube, Dailymotion et Vimeo uniquement)">
+        </div>
+
+        <label>Liste des distributeurs :  </label>
+        <div>
+
+          <input id="distribAuchan" type="checkbox" name="distributeurs">
+          <label for="distribAuchan"> Auchan </label>
+
+          <input id="distribCarrefour" type="checkbox" name="distributeurs">
+          <label for="distribCarrefour"> Carrefour </label>
+
+          <input id="distribLeclerc" type="checkbox" name="distributeurs">
+          <label for="distribLeclerc"> Leclerc </label>
+
+          <input id="distribBoulanger" type="checkbox" name="distributeurs">
+          <label for="distribBoulanger"> Boulanger </label>
+
+          <input id="distribFnac" type="checkbox" name="distributeurs">
+          <label for="distribFnac"> Fnac </label>
+
+          <input id="distribAmazon" type="checkbox" name="distributeurs">
+          <label for="distribAmazon"> Amazon </label>
+
+          <input id="distribVentePrivee" type="checkbox" name="distributeurs">
+          <label for="distribVentePrivee"> Vente Privée </label>
+
+          <input id="distribCdiscount" type="checkbox" name="distributeurs">
+          <label for="distribCdiscount"> CDiscount </label>
+
+        </div>
+
+        <label>Information Carte de Crédit</label>
+        <div>
+          <label for="numeroCB">Numéro de la carte</label>
+          <input class="form-control" id="numeroCB" type="texte" style="width:300px" placeholder="0000-0000-0000-0000">
+
+          <label for="dateCB">Date d'expiration</label>
+          <input class="form-control" id="dateCB" type="texte" style="width:100px" placeholder="MM/AA">
+
+          <label for="cryptoCB">Cryptogramme</label>
+          <input class="form-control" id="cryptoCB" type="texte" style="width:100px" placeholder="MM/AA">
+
+        </div>
+
+        <div>
+          <label for="lienManuel">Lien vers le manuel du produit</label>
+          <input class="form-control" type="text" style="width:600px" id="lienManuel" placeholder="Saisir l'url de la video de présentation (pdf ou html)">
+        </div>
+        <br>
+
+        <div>
+          <button id="creaProduit" type="button">Créer la fiche produit</button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </form>
+
+    </div>
+
+
+<!-- Appel librairie jquery -->
+
+      <script src="https://code.jquery.com/jquery-2.2.3.min.js"
+        integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+        crossorigin="anonymous">
+      </script>
+
+<!--Appel de mon script perso -->
+      <script type="text/javascript" src="js/jqueryFichePro.js"></script>
+
+  </body>
+</html>

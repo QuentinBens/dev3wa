@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>regex</title>
+  <meta charset="utf-8">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <h1>Création de compte</h1>
+  <hr />
+  <div class="col-md-8">
+  <form>
+    <div>
+      <label for="produit">Titre du produit</label>
+      <input class="form-control" name="produit" type="text" id="produit" placeholder="Description du produit"/>
+    </div>
+    <div>
+      <label for="accroche">Acroche du produit</label>
+      <input class="form-control" name="accroche" type="text" id="accroche" placeholder="Accroche du produit"/>
+    </div>
+    <div>
+      <label for="color">Couleur du produit</label>
+      <input class="form-control" name="color" type="text" id="color" placeholder="Choisir la couleur du produit"/>
+    </div>
+    <div>
+      <label for="quantit">Quantité du produit</label>
+      <input type="text" name="quantit" class="form-control" id="quantit" placeholder="Quantité du produit"/>
+    </div>
+    <div>
+      <h4>Livraison Offerte ?</h4>
+      <label for="Oui">Oui</label>
+      <input type="radio" name="livraison" id="oui"/>
+      <label for="Non">Non</label>
+      <input type="radio" name="livraison" id="non"/>
+      <div id="prixHide" style="display:none;">
+        <label for="prixLivraison">Montant du prix de la Livraison</label>
+        <input type="text" name="prixLivraison" class="form-control" id="prixLivraison" placeholder="Montant de la livraison"/>
+      </div>
+    </div>
+    <div>
+      <h4>Payable en 3 fois sans frais</h4>
+      <label for="paiementYes">Oui en 3 fois</label>
+      <input type="checkbox" name="paiement" id="paiementYes"/>
+      <label for="paiementNo">Non sans le 3 fois</label>
+      <input type="checkbox" name="paiement" id="paiementNo"/>
+    </div>
+    <div>
+      <h4>Retrait Offert en magasin</h4>
+      <input type="checkbox" name="carrefour" id="carrefour"/><label for="carrefour">Carrefour</label>
+      <input type="checkbox" name="auchan" id="auchan"/><label for="auchan">Auchan</label>
+      <input type="checkbox" name="geant" id="geant"/><label for="geant">Geant</label>
+      <input type="checkbox" name="carrefour" id="lidl"/><label for="lidl">Lidl</label>
+    </div>
+    <div>
+      <label for="reference">Référence du produit</label>
+      <input type="text" name="reference" class="form-control" id="reference" placeholder="AA-XXXX-BB"/>
+    </div>
+    <div>
+      <label for="price">Prix HT(€)</label>
+      <input type="text" name="price" class="form-control" id="price" placeholder="00.00€" />
+    </div>
+    <div>
+      <label for="resume">Résumé du produit</label>
+      <textarea name="resume" class="form-control" id="resume" placeholder="description du produit"></textarea>
+    </div>
+    <div>
+      <h4>Capacité Mémoire du produit</h4>
+      <input type="radio" name="capacity" id="fiveGo"/><label for="fiveGo">5Go</label>
+      <input type="radio" name="capacity" id="tenGo"/><label for="tenGo">10Go</label>
+      <input type="radio" name="capacity" id="twentyGo"/><label for="twentyGo">20Go</label>
+      <input type="radio" name="capacity" id="fiftyGo"/><label for="fiftyGo">50Go</label>
+      <input type="radio" name="capacity" id="hundredGo"/><label for="hundredGo">100Go</label>
+      <input type="radio" name="capacity" id="oneTo"/><label for="oneTo">1To</label>
+      <input type="radio" name="capacity" id="other"/><label for="other">Autre</label>
+      <div id="otherHide" style="display:none;">
+        <label for="otherGo">Choisir une autre capacité de stockage</label>
+        <input type="text" name="capacity" class="form-control" id="otherGo" placeholder="Saisir au format XX Go ou XX To" />
+      </div>
+    </div>
+    <div>
+      <label for="date">Date de sortie du produit</label>
+      <input type="text" name="date" class="form-control" id="date" placeholder="Date format XX/XX/XXXX"/>
+    </div>
+    <h4>Choix des tranports (2 minimun)</h4>
+    <select class="form-control" name="transport" id="transport" multiple>
+      <option value="ups">UPS</option>
+      <option value="DHL">DHL</option>
+      <option value="soCollissimo">SoCollissimo</option>
+      <option value="tnt">TNT</option>
+      <option value="gls">GLS</option>
+      <option value="fretBay">FretBay</option>
+      <option value="laPoste">LaPoste</option>
+      <option value="pointRelay">Point Relay</option>
+      <option value="other">Autre</option>
+    </select>
+    <div id="transportHide" style="display:none;">
+      <label for="otherTransport">Si autre transporteur, saisissez le .</label>
+      <input type="text" class="form-control"  name="otherTransport" id="otherTransport" />
+    </div>
+    <div>
+      <h4>Délai d'Expedition du produit</h4>
+      <input type="radio" name="expedition" id="timeOne"/><label for="timeOne">Expédié sous 24h</label>
+      <input type="radio" name="expedition" id="timeTwo"/><label for="timeTwo">Expédié sous 48h</label>
+      <input type="radio" name="expedition" id="timeThree"/><label for="timeThree">Expédié sous 5 Jours</label>
+      <input type="radio" name="expedition" id="timeFour"/><label for="timeFour">Expédié sous 1 semaine</label>
+      <input type="radio" name="expedition" id="timeOther"/><label for="timeOther">Autre</label>
+      <div id="expeditionHide" style="display:none;">
+        <label for="expeditionTimeOther">Si autre transporteur, saisissez le .</label>
+        <input type="text" class="form-control"  name="expeditionTime" id="expeditionTimeOther" />
+      </div>
+    </div>
+    <div>
+      <label for="poids">Poids Net de format</label>
+      <input type="text" name="poids" class="form-control" id="poids" placeholder="XXX.X Kg"/>
+      <input type="checkbox" name="pricePoids" id="pricePoids" /><label for="pricePoids">Prendre en compte le poids du colis (+5% du poids net) soit : <span>100</span> Kg</label>
+
+    </div>
+    <div>
+      <h4>Disponilité du stock</h4>
+      <input type="radio" name="stock" id="stockOn"/><label for="stockOn">Disponible en Stock</label>
+      <input type="radio" name="stock" id="stockOff"/><label for="stockOff">Disponible Hors-stock</label>
+      <input type="radio" name="stock" id="stockOne"/><label for="stockOne"> Affichage simple des détails du produit hors-stock</label>
+    </div>
+    <div>
+      <label for="warranty">Garantie du produit</label>
+      <input type="text" name="warranty" class="form-control" id="warranty" placeholder="Infiquez le nombre d'année de 0 à 5"/>
+      <textarea name="saisieWarranty" class="form-control" id="SaisieWarranty" style="display:none" placeholder="Description de la garantie au minimun 15 caractères"></textarea>
+    </div>
+    <div>
+      <label for="taxe">Taxe du Produit</label>
+      <input type="text" name="taxe" class="form-control" id="taxe" class="form-control" placeholder="Saisie taxe en 00.00%"/>
+      <b>Mon prix est de <span></span> €  TTC</b>
+
+    </div>
+    <div>
+      <label for="ficheTec">Fiche technique du Produit</label>
+      <textarea name="ficheTec" class="form-control" id="ficheTec" >Fiche technique du Produit</textarea>
+    </div>
+    <div>
+      <label for="picture">Url de l'image du Produit</label>
+      <input type="text" name="picture" class="form-control" id="picture"/>
+      <img src=""  />
+    </div>
+    <div>
+      <label for="video">Url de la vidéo du Produit</label>
+      <input type="text" name="video" class="form-control" id="video"/>
+      <iframe style="display:none"></iframe>
+    </div>
+    <div id="replaceVideo">
+      <label for="manual">Manuel d'Utilisation</label>
+      <input type="text" name="manual" class="form-control" id="manual" placeholder="Manuel d'utilistation" />
+    </div>
+    <div>
+      <label>Lieu distribution du Produit</label>
+      <input type="checkbox" name="distrib" value="carrefour" id="distribCarrefour"/><label for="distribCarrefour">Carrefour</label>
+      <input type="checkbox" name="distrib" value="auchan" id="distribAuchan"/><label for="distribAuchan">Carrefour</label>
+      <input type="checkbox" name="distrib" value="leclerc" id="distribLeclerc"/><label for="distribLeclerc">Carrefour</label>
+      <input type="checkbox" name="distrib" value="boulanger" id="distribBoulanger"/><label for="distribBoulanger">Carrefour</label>
+      <input type="checkbox" name="distrib" value="fnac" id="distribFnac"/><label for="distribFnac">Carrefour</label>
+      <input type="checkbox" name="distrib" value="amazon" id="distribAmazon"/><label for="distribAmazon">Carrefour</label>
+      <input type="checkbox" name="distrib" value="ventePrivate" id="distribVentePrivate"/><label for="distribVentePrivate">Carrefour</label>
+      <input type="checkbox" name="distrib" value="cdiscount" id="distribCdiscount"/><label for="distribCdiscount">Carrefour</label>
+      <input type="checkbox" name="distrib" value="leBonCoin" id="distribleBoncoin"/><label for="distribleBoncoin">Carrefour</label>
+    </div>
+    <div id="infoSociety">
+      <label>Information de la Société</label>
+      <label for="nom">Nom</label>
+      <input type="text" name="nom" class="form-control" id="nom" data-regex= "/^[a-z0-9\.]{3,}$/i" placeholder="Nom minimum 3 caractéres avec/sans '.'"/>
+      <label for="mail">Email</label>
+      <input type="email" name="email" class="form-control" id="mail" data-regex= "/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,4}$/i" placeholder="Email"/>
+      <label for="phone">Téléphone</label>
+      <input type="text" name="phone" class="form-control" id="phone" data-regex= "/^[0-9(\.\/\- )?]{10,}$/" placeholder="n° de téléphone 10 chiffres"/>
+      <label for="siren">N° de SIREN avec XXX XXX XXX</label>
+      <input type="text" name="siren" class="form-control" id="siren" data-regex= "/^([0-9]{3}\ ?){3}?$/i" placeholder="N° de SIREN XXX XXX XXX" />
+      <label>Coordonnées bancaire du responsable de la Société:</label>
+      <label for="numero">Numéro 16 chiffres avec XXXX-XXXX-XXXX-XXXX</label>
+      <input type="text" name="numero" class="form-control" id="numero" data-regex= "/^([0-9]{4}[\-\. ]?){4}$/" placeholder="Numéro 16 chifres" />
+      <label for="crypto">Cryptogramme Visuel à 3 chiffres</label>
+      <input type="text" name="crypto" class="form-control" id="crypto" data-regex = "/^[0-9]{3}$/" placeholder="Cryptogramme Visuel XXX" />
+      <label for="dateExpiration">Date expritaion de la carte bancaire</label>
+      <input type="text" name="dateExpiration" class="form-control" id="dateExpiration" data-regex= "/^[0-9][0-9]\/[0-9][0-9]$/" placeholder="Date d'éxpiration XX/XX" />
+    </div>
+    <div>
+      <label for="manuel">Manuel d'Utilisation</label>
+      <input type="text" name="manuel" class="form-control" id="manuel" placeholder="Entrez L'URL du ficher à upload"/>
+    </div>
+
+    <div>
+      <input type="checkbox" name="cgv" id="cgv"/><label for="cgv">J'accèpte les Conditions Générales de Ventes CGV</label>
+    </div>
+
+    <input type="checkbox" name="cgu" id="cgu"/><label for="cgu">j'accèpte les Conditions Générales d'Utilisation CGU du site</label>
+    <button type="button" name="button">Créer le produit</button>
+
+  </form>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script  src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous">
+  </script>
+  <!-- Appel de notre script JS  -->
+  <script type="text/javascript" src="js/formulaire.js"></script>
+</body>
+
+</html>

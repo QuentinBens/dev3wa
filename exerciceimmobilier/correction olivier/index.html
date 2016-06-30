@@ -1,0 +1,465 @@
+<html>
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Appel CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap_slate.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="bower_components/fancybox/source/jquery.fancybox.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.css" media="all" />
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+    <title>Moteur de recherche logements</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <p class="alertF">Attention. Un champs requiert votre attention</p>
+
+      <h1>Formulaire de Recherche</h1>
+      <div style="height:30px"></div>
+      <form class="col-md-10 col-md-offset-1 form-goup">
+
+
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon2">ID</span>
+          <input id="txtID" type="text" class="form-control maskID" aria-describedby="sizing-addon2" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Erreur de saisie" data-content="Saisissez le format AA-000AA#11">
+        </div>
+
+        <br>
+
+        <div class="textarea">
+          <label for="motCleRecherche">Mots clefs</label>
+          <textarea id=motCleRecherche class="form-control" rows="3" placeholder="Saisissez vos mots-clefs"></textarea>
+      <!-- div alert -->
+          <div id="alertMotClef" class="alert alert-danger alert-dismissible hide" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Attention! </strong> Vous devez saisir un maximum de 4 mots-clefs séparés par des espaces ou des virgules
+          </div>
+      <!-- div alert -->
+        </div>
+
+        <br>
+
+        <label for="TypeLoc">Choissiez le type de bien recherché</label>
+        <div id="TypeLoc" class="typeLoc form-group">
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocAppart" value="option1"> Appartement
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocMaison" value="option2"> Maison
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocVilla" value="option3"> Villa
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocComm" value="option4"> Local commercial
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocBureau" value="option5"> Bureau
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocParking" value="option6"> Parking
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocTerrain" value="option7"> Terrain
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocBat" value="option8"> Bâtiment
+          </label>
+
+          <label class="checkbox-inline">
+            <input class="typeLoc" type="checkbox" id="TypeLocHotel" value="option8"> Hôtel particulier
+          </label>
+
+        </div> <!--END typeLoc -->
+    <!-- div alert -->
+        <div id="alertTypeLoc" class="alert alert-danger alert-dismissible" role="alert"></div>
+
+        <!-- div alert -->
+
+        <br>
+
+
+        <label>Situation Géographique</label>
+        <div class="input-group">
+
+            <span class="input-group-addon" id="sizing-addon2">Departement</span>
+            <select class="form-control" id="se1ectDept" aria-describedby="sizing-addon2" >
+              <option value="00">Choisir</option>
+              <option value="01">01</option>
+              <option value="38">38</option>
+              <option value="42">42</option>
+              <option value="69">69</option>
+              <option value="73">73</option>
+              <option value="74">74</option>
+            </select>
+
+            <span class="input-group-addon" id="sizing-addon2">Code Postal</span>
+            <input id="selectCP" type="text" class="form-control maskCP" placeholder="..."  aria-describedby="sizing-addon2" data-toggle="popover" data-trigger="focus" title="Erreur de format" data-content="Saisissez uniquement des caractères numérique">
+
+            <span class="input-group-addon" id="sizing-addon2">Ville</span>
+            <input id="selectVille" type="text" class="form-control" placeholder="..."  aria-describedby="sizing-addon2" data-toggle="popover" data-trigger="focus" title="Erreur de format" data-content="Saisissez uniquement des caractères numérique">
+
+        </div> <!-- END GEO -->
+        <br>
+      <!-- div alert -->
+            <div id="alertGeo" class="alert alert-danger alert-dismissible" role="alert"></div>
+
+        <br>
+
+        <label>Fourchette prix</label>
+        <div class="input-group">
+
+            <span class="input-group-addon" id="sizing-addon2">Prix min.</span>
+            <input id="selectMinPrix" type="text" class="form-control maskPrix" aria-describedby="sizing-addon2" data-toggle="popover" data-trigger="focus" title="Erreur de format" data-content="Saisissez uniquement des caractères numérique">
+
+            <span class="input-group-addon" id="sizing-addon2">Prix max.</span>
+            <input id="selectMaxPrix" type="text" class="form-control maskPrix" aria-describedby="sizing-addon2" data-toggle="popover" data-trigger="focus" title="Erreur de format" data-content="Saisissez uniquement des caractères numérique">
+
+        </div> <!-- END PRIX -->
+        <br>
+      <!-- div alert -->
+            <div id="alertPrix" class="alert alert-danger alert-dismissible alertPrix" role="alert"></div>
+
+        <br>
+
+        <label>Fourchette surface habitable</label>
+        <div class="input-group">
+
+            <span class="input-group-addon" id="sizing-addon2">Surace min.</span>
+            <input id="selectMinSurface" type="text" class="form-control maskSurface" placeholder="..."  aria-describedby="sizing-addon2">
+
+            <span class="input-group-addon" id="sizing-addon2">Surface max.</span>
+            <input id="selectMaxSurface" type="text" class="form-control maskSurface" placeholder="..."  aria-describedby="sizing-addon2">
+
+        </div> <!-- END SURFACE -->
+        <br>
+      <!-- div alert -->
+            <div id="alertSurface" class="alert alert-danger alert-dismissible alertSurface" role="alert"></div>
+
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="nbPiece">Nombre de pièces</label>
+          <div id="nbPiece"class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline">
+              <input class="nbPieceCkbx" type="checkbox" id="nbPiece1" value="option1"> 1 pièce
+            </label>
+            <label class="checkbox-inline">
+              <input class="nbPieceCkbx" type="checkbox" id="nbPiece2" value="option2"> 2 pièces
+            </label>
+
+            <label class="checkbox-inline">
+              <input class="nbPieceCkbx" type="checkbox" id="nbPiece3" value="option3"> 3 pièces
+            </label>
+
+            <label class="checkbox-inline">
+              <input class="nbPieceCkbx" type="checkbox" id="nbPiece4" value="option4"> 4 pièces
+            </label>
+
+            <label class="checkbox-inline">
+              <input class="nbPieceCkbx" type="checkbox" id="nbPiece5" value="option5"> 5 pièces
+            </label>
+
+          </div> <!--END Pieces -->
+        </div>
+      <!-- div alert -->
+            <div id="alertPiece" class="alert alert-danger alert-dismissible alertPiece" role="alert"></div>
+
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="nbChambre">Nombre de chambre</label>
+          <div id="nbChambre" class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="nbChambre1" value="option1"> 1 chambre
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="nbChambre2" value="option2"> 2 chambres
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="nbChambre3" value="option3"> 3 chambres
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="nbChambre4" value="option4"> 4 chambres
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="nbChambre5" value="option5"> 5 chambres
+            </label>
+
+            <br><br>
+
+            <div id="chambreSurface" class="input-group chambreSurface">
+              <span class="input-group-addon" id="sizing-addon2">m2 moyen</span>
+              <input id="selectMaxSurface" type="text" class="form-control maskSurface" placeholder="..."  aria-describedby="sizing-addon2">
+            </div>
+          </div>
+        </div> <!--END Chambre -->
+
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="TypeChauffage">Type de chauffage</label>
+          <div id="TypeChauffage" class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="TypeChauffageGaz" value="option1"> Gaz
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="TypeChauffageCol" value="option2"> Collectif
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="TypeChauffageFuel" value="option3"> Fuel
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="TypeChauffageElec" value="option4"> Electrique
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="TypeChauffageIndiv" value="option5"> Individuel
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="TypeChauffageAutre" value="option6"> Autre
+            </label>
+
+            <br><br>
+
+            <div id="autreChauffage" class="input-group autreChauffage">
+              <span class="input-group-addon" id="sizing-addon2">Autre :</span>
+              <input id="txtChaufageAutre" type="text" class="form-control" placeholder="..."  aria-describedby="sizing-addon2">
+            </div>
+          </div>
+        </div> <!--END Chauffage -->
+        <br>
+
+        <div class="input-group" style="width:100%">
+          <label for="Amenagement">Type d'Amenagement</label>
+          <div id="Amenagement" class="typeLoc form-group" style="width:100%">
+
+            <label class="radio-inline">
+              <input name="Amenag" type="radio" id="AmenagementVide" value="option1"> Vide
+            </label>
+            <label class="radio-inline">
+              <input name="Amenag" type="radio" id="AmenagementMeuble" value="option2"> Meublé
+            </label>
+            <label  class="radio-inline">
+              <input name="Amenag" type="radio" id="AmenagementIndif" value="option3" checked="checked"> Indifferent
+            </label>
+
+          </div>
+        </div> <!--END Amenagement -->
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="Exclusiv">Exclusivité</label>
+          <div id="Exclusiv" class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="ExclusivOui" value="option1"> Uniquement les exclustvités
+            </label>
+          </div>
+        </div> <!--END Exclusiv -->
+        <br>
+
+        <label>Périmètre géographique</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon2">KM</span>
+          <input id="perimetreGeo" type="text" class="form-control" placeholder="Nombre de kilomètres" aria-describedby="sizing-addon2" data-toggle="popover" data-trigger="focus" title="Erreur de format" data-content="Saisissez uniquement des caractères alphanumérique">
+        </div>
+        <br>
+
+        <label>Situation du Logement dans l'immeuble</label>
+        <div id="SelectEtage"class="input-group">
+
+            <span class="input-group-addon" id="sizing-addon2">Etage min.</span>
+            <input id="selectEtageMin" type="text" class="form-control" placeholder="..."  aria-describedby="sizing-addon2" data-toggle="popover" data-trigger="focus" title="Erreur de format" data-content="Saisissez uniquement des caractères numérique">
+
+            <span class="input-group-addon" id="sizing-addon2">Etage max.</span>
+            <input id="selectEtageMax" type="text" class="form-control" placeholder="..."  aria-describedby="sizing-addon2" data-toggle="popover" data-trigger="focus" title="Erreur de format" data-content="Saisissez uniquement des caractères numérique">
+
+        </div> <!-- END PRIX -->
+
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="OptionImmeuble">A propos de l'immeuble</label>
+          <div id="OptionImmeuble" class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="OptionImmAscen" value="option1"> Ascenseur
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="OptionImmInter" value="option2"> Interphone
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="OptionImmDigi" value="option3"> Digicode
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="OptionImmGard" value="option4"> Gardien
+            </label>
+
+          </div>
+        </div> <!--END Option Immeuble -->
+
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="CommodImmeuble">Liste des commodités</label>
+          <div id="CommodImmeuble" class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="CommodImmPisci" value="option1"> Piscine
+            </label>
+            <label class="checkbox-inline optionLoc">
+              <input type="checkbox" id="CommodImmAlar" value="option2"> Alarme
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="CommodImmClim" value="option3"> Climatisation
+            </label>
+
+            <label class="checkbox-inline optionLoc">
+              <input type="checkbox" id="CommodImmChemi" value="option4"> Cheminée
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="CommodImmParq" value="option5"> Parquet
+            </label>
+
+            <label class="checkbox-inline optionLoc">
+              <input type="checkbox" id="CommodImmTer" value="option6"> Terrasse(s)
+            </label>
+
+            <label class="checkbox-inline optionLoc">
+              <input type="checkbox" id="CommodImmBal" value="option7"> Balcon(s)
+            </label>
+
+          </div>
+        </div> <!--END commodites Immeuble -->
+        <!-- div alert -->
+        <div id="alertPieceSpe" class="alert alert-danger alert-dismissible alertPieceSpe" role="alert"></div>
+
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="PieceSpe">Pièces</label>
+          <div id="PieceSpe" class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline optionLoc">
+              <input type="checkbox" id="PieceSpeSAMS" value="option1"> Salle à manger séparée
+            </label>
+            <label class="checkbox-inline optionLoc">
+              <input type="checkbox" id="PieceSpeSej" value="option2"> Séjour
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="PieceSpeToilS" value="option3"> Toilettes séparés
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="PieceSpeSDB" value="option4"> Salle de Bain
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="PieceSpeDouch" value="option5"> Salle d'eau (douche)
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="PieceSpeEnteS" value="option6"> Entrée séparée(s)
+            </label>
+
+          </div>
+        </div> <!--END Pieces Spéciales -->
+
+        <br>
+
+        <div class="input-group"style="width:100%">
+          <label for="Rangem">Rangements</label>
+          <div id="Rangem" class="typeLoc form-group" style="width:100%">
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="RangemCave" value="option1"> Cave
+            </label>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="RangemPlaca" value="option2"> Placards
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="RangemParki" value="option3"> Parking Ouvert
+            </label>
+
+            <label class="checkbox-inline">
+              <input type="checkbox" id="RangemBox" value="option4"> Box (parking fermé ou garage)
+            </label>
+
+          </div>
+        </div> <!--END Rangement -->
+        <br>
+
+        <div class="input-group" style="width:100%">
+          <label for="Orientation">Orientation</label>
+          <div id="Orientation" class="typeLoc form-group" style="width:100%">
+
+            <label class="radio-inline">
+              <input type="radio" id="OrientSud" value="option1"> Sud
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio" id="OrientEst" value="option2"> Est
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio" id="OrientNord" value="option3"> Nord
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio" id="OrientOuest" value="option4"> Ouest
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio" id="OrientSVAS" value="option5"> Sans vis à vis
+            </label>
+
+            <label class="radio-inline">
+              <input type="radio" id="OrientIndif" value="option6" checked="checked"> Indifferent
+            </label>
+
+          </div>
+        </div> <!--END Orientation -->
+
+
+      </form> <!-- END COL -->
+    </div>  <!-- END container -->
+    <div class="progress">
+      <div class="progress-bar progress-bar-success progressionGlobale" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+      </div>
+    </div>
+<!-- Appel library -->
+    <script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/fancybox/source/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="js/seloger.js"></script>
+  </body>
+</html>
